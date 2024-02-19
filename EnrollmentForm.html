@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Enrollment Form </title>
+
+    <style>
+ 
+
+    body {
+
+        background-color: yellow;
+    }
+
+      video {
+
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+
+
+      p {
+ 
+        padding: 0 auto;
+        margin-left: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        text-shadow: 2px 2px 5px black;
+        font-weight: bold;
+        color: yellow
+        
+      }
+
+    form {
+
+        
+        margin-top: 53%;
+        background-image: url('Thumbnail.PNG');
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 30px;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+             
+    } 
+
+    label {
+        
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 auto;
+        display: block;
+        border: none;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        
+    }
+
+    button{
+
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: blue; 
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px black;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease
+    }
+
+    input[type="text"], input[type="email"],  input[type="address"], input[type="tel"] {
+
+        width: 30%;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 2px 2px 5px black;
+    }
+
+    input[type="number"] {
+
+        width: 5%;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 2px 2px 5px black;
+    }
+
+   </style>
+
+</head>
+
+
+
+    <body>
+    
+    
+    <video autoplay loop muted>
+
+        <source src="Enrollment.mp4" type="video/mp4"> <!-- Loop of the Video-->
+
+    </video>
+    
+    
+    <audio id="sound1" src="Thanks.mp3" preload="auto"> </audio> <!-- Once to click submit it has a sound effect-->
+
+
+    <p> Welcome to STI </p>
+
+
+    <form id="enrollmentForm" > <!-- Enrollment Form -->
+        
+        <label for="name"> Name: </label>
+        <input type="text" id="name" name="name" required> <br><br>
+
+
+        <label for="email"> Email: </label>
+        <input type="email" id="email" name="email" required> <br><br>
+
+
+        <label> Gender: </label> <br>
+        <input type="radio" id="male" name="gender" value="male" required>
+
+        <label for="male"> Male: </label> <br>
+        <input type="radio" id="female" name="gender" value="female"> <br>
+
+        <label for="female"> Female: </label> <br>
+        <input type="radio" id="other" name="gender" value="other">
+        
+        <label for="other"> Other: </label> <br><br>
+
+        <label for="age"> Age: </label> <br>
+        <input type="number" id="age" name="age" required> <br><br>
+
+        <label for="address"> Address: </label> <br>
+        <input type="address" id="address" name="address" required> <br><br>
+
+
+        <label for="phone"> Phone: </label> <br>
+        <input type="tel" id="phone" name="phone" required>
+
+        <br>
+        <br>
+        <button id="btn" onclick="audio.play();"> Submit </button>
+        <button type="reset"> Reset </button>
+
+    </form>
+
+   
+    <script>
+            
+            const audio = new Audio();
+            audio.src = "Thanks.mp3";
+
+            document.getElementById("enrollmentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var age = document.getElementById("age").value;
+            var address = document.getElementById("address").value;
+            var phone = document.getElementById("phone").value;
+            
+            
+            var message = "Name: " + name + "\n" + "\n";
+            message += "Email: " + email + "\n" + "\n";
+            message += "Gender: " + gender + "\n" + "\n";
+            message += "Age: " + age + "\n" + "\n";
+            message += "Address: " + address + "\n" + "\n";
+            message += "Phone: " + phone;
+            
+            
+            alert(message);
+        });
+
+    </script>
+    
+    </body>
+
+</html>
